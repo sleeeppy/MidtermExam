@@ -1,4 +1,27 @@
 
+x = 1024
+# x = 0b10000000000
+print("11th bit of %d:" %x, 1 & (x>>10))
+
+a = 0b01001101
+b = 0b01101010
+print(format(a ^ b, '08b'))
+# 00100111 = 39
+
+def xor_cipher(text, key):
+    result = ""
+    for ch in text:
+        result += chr(ord(ch) ^ key)
+    return result
+encrypted = xor_cipher("HELLO", 23)
+print(encrypted)
+print(xor_cipher(encrypted, 23))
+# chr(ord(ch)) 랑 Key를 XOR 연산
+
+a = 100000000 % 7
+day = ["일","월","화","수","목","금","토"][a]
+print(f"오늘은 {day}요일 입니다.")
+
 a, b = 3, 9
 
 # GCD 썡구현
@@ -61,7 +84,8 @@ print(fibo(n), memoFibo(n))
 
 # 람다 식 튜플[1] 기준으로 sort
 a = [(123,1233), (123,39393), (22,33313)]
-print(a.sort(key = lambda x : x[1]))
+a.sort(key = lambda x : x[1])
+print(a) # 주의 : print안에 a.sort() 그대로 넣으면 return 값이 없어서 error 발생
 
 # List Comprehension
 arr = [i for i in range(15, 0, -2)]
