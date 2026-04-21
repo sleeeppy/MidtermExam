@@ -41,7 +41,7 @@ def gcd(a, b):
     if b:
         return a
     else:
-        return gcd(a, a%b)
+        return gcd(b, a%b)
 
 print(GCD(a, b), gcd(a,b))
 
